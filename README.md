@@ -1,8 +1,10 @@
 # CornerCluster
 ## OverView of This Project
+
 This project detects harris corner of the pattern, and cluster these corners based on the density，and then process these clustered pattern to identify which pattern it is and the target is to find the feature points of these pattern and using Perspective-N-Points algorithm to calculate the extrinsic parameters of the camera. So we can get the position of the camera relative to the other camera or object, if we have the relative position from one camera to the other, we can integrate the image captured by two cameras to do a better and precisely job such as 3D reconstruction or Robotic SLAM. 
 
 ## Detail of this Project
+
 Recently I am working on calculating the transformation matrix of one camera relative to the other by using an easy-to-identitfied pattern(with complex corner points) attached to the target camera. Recognizing the pattern is easy but when it comes to detect object which is far from the camera, the task becomes harder. Because the complex environment interferes with the detection and both feature-based and deep learning based algorithm perform not well when detecting object which is far, my purpose is to design a workflow to solve this problem.
 
 To solve this problem I have tried different ways both to detect the pattern’s key points and to calculate the transformation.
@@ -20,11 +22,16 @@ https://v.qq.com/x/page/g0561v0ikec.html
 https://v.qq.com/x/page/l0561kxt26m.html
 
 Moreover, I come up with an idea that we have to use the most easily found features that we can detect at a far distance, so I decided to use corner points, the workflow is showing here.
-	1.	I used the opencv library function, but the effect is not very good, so I implemented my own corner point detection by applying the differential mask in x and y directions and the gaussian mask which is slightly different from Harris method. 
+
+	1.	I used the opencv library function, but the effect is not very good, so I implemented my own corner point detection by applying the differential mask in x and y directions and the gaussian mask which is slightly different from Harris method.
 	2.	The next step is to use Density-based clustering algorithm to cluster these points, because our pattern has the dense corner points, so it is easy to cluster them into one cluster. 
 	3.	We scan the clusters and drop those that do not meet our criteria with regard to the shape of the pattern. 
-	4.	We chose the 4 Points to do the same job as the last method and calculate the relative position and posture of another camera. 
+	4.	We chose the 4 Points to do the same job as the last method and calculate the relative position and posture of another camera.
+	
 The following link shows the how it works: (The green points represent the noise detected by my algorithm, and the points in different color represent different cluster)
+
 https://v.qq.com/x/page/o0561prp6eg.html
+
 ## Some Prospective
+
 I found that the complexity of our pattern has relationship with the detection which is that if it is too complicated the corner points are harder to detect at a far distance, but if it is not complicated enough we can easily be confused with the environment noise, so I want to still focus on this topic and look for a good way to generate a pattern to be easily recognized. This process is just the opposite of the detection process, we think of the problem in a reverse thinking which is novel and there is a great application.
