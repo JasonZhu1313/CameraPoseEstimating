@@ -1,6 +1,4 @@
 # CornerCluster
-## Github Link of This project
-The Github link of this project is https://github.com/JasonChu1313/CameraPoseEstimating.
 ## OverView of This Project
 This project detects harris corner of the pattern, and cluster these corners based on the density，and then process these clustered pattern to identify which pattern it is and the target is to find the feature points of these pattern and using Perspective-N-Points algorithm to calculate the extrinsic parameters of the camera. So we can get the position of the camera relative to the other camera or object, if we have the relative position from one camera to the other, we can integrate the image captured by two cameras to do a better and precisely job such as 3D reconstruction or Robotic SLAM. 
 
