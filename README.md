@@ -34,4 +34,5 @@ https://v.qq.com/x/page/o0561prp6eg.html
 
 ## Some Prospective
 
+
 I found that the complexity of our pattern has relationship with the detection which is that if it is too complicated the corner points are harder to detect at a far distance, but if it is not complicated enough we can easily be confused with the environment noise, so I want to still focus on this topic and look for a good way to generate a pattern to be easily recognized. This process is just the opposite of the detection process, we think of the problem in a reverse thinking which is novel and there is a great application.
